@@ -16,8 +16,8 @@ namespace NoodleEater
 
         private void Start()
         {
-            OnHealthChanged(health);
-            OnScoreUpdated(Score);
+            OnHealthChanged?.Invoke(health);
+            OnScoreUpdated?.Invoke(Score);
         }
 
         private void Update()
