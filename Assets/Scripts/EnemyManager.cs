@@ -11,6 +11,8 @@ namespace NoodleEater
 
         public IEnumerator ShootRoutine()
         {
+            yield return new WaitForSeconds(2f);
+            
             while (true)
             {
                 Enemy[] enemies = FindObjectsByType<Enemy>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
