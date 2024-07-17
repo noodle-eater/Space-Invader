@@ -4834,6 +4834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1436547974}
   healthText: {fileID: 1844219900}
+  resultText: {fileID: 1863806910}
 --- !u!114 &2091841591
 MonoBehaviour:
   m_ObjectHideFlags: 0
