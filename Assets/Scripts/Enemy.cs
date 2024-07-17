@@ -14,7 +14,7 @@ namespace NoodleEater
             if (!bullet.Owner.TryGetComponent(out Player player)) return;
             
             player.AddScore();
-            Destroy(gameObject);
+            gameObject.SetActive(false);
             Destroy(other.gameObject);
         }
     }
