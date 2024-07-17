@@ -30,7 +30,7 @@ namespace NoodleEater
             
             Enemy[] enemies = FindObjectsByType<Enemy>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
 
-            if (enemies.Length > 0) return;
+            if (enemies.Length > 1) return;
             
             StopCoroutine(_enemyManager.ShootRoutine());
             
