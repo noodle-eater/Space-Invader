@@ -10,7 +10,7 @@ namespace NoodleEater
         [SerializeField] private Text healthText;
         [SerializeField] private Text resultText;
 
-        public void SetScore(int score) => scoreText.text = score.ToString();
+        public void SetScore(int score) => scoreText.text = "Score: " + score;
         public void SetHealth(int health) => healthText.text = "Health: " + health;
 
         public void HideScore() => scoreText.gameObject.SetActive(false);
