@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace NoodleEater
 {
@@ -8,7 +10,12 @@ namespace NoodleEater
         private GameHud _gameHud;
         private AudioPlayer _audioPlayer;
         private EnemyManager _enemyManager;
-        
+
+        private void Awake()
+        {
+            SceneManager.LoadScene("UI", LoadSceneMode.Additive);
+        }
+
         private void Start()
         {
             _player = FindObjectOfType<Player>();
