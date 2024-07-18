@@ -36,7 +36,6 @@ namespace NoodleEater
             
             _player.gameObject.SetActive(false);
             
-            _gameHud.HideHealth();
             _gameHud.HideScore();
             _gameHud.SetResult("You Win!\nScore: " + _player.Score);
         }
@@ -58,7 +57,6 @@ namespace NoodleEater
 
             _player.gameObject.SetActive(false);
             
-            _gameHud.HideHealth();
             _gameHud.HideScore();
             _gameHud.SetResult("Game Over!\nScore: " + _player.Score);
         }
