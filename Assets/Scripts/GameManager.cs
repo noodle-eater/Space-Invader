@@ -6,12 +6,14 @@ namespace NoodleEater
     {
         private Player _player;
         private GameHud _gameHud;
+        private AudioPlayer _audioPlayer;
         private EnemyManager _enemyManager;
         
         private void Start()
         {
             _player = FindObjectOfType<Player>();
             _gameHud = FindObjectOfType<GameHud>();
+            _audioPlayer = FindObjectOfType<AudioPlayer>();
             _enemyManager = FindObjectOfType<EnemyManager>();
 
             if (!_player) return;
@@ -34,8 +36,11 @@ namespace NoodleEater
             
             StopCoroutine(_enemyManager.ShootRoutine());
             
-            _player.gameObject.SetActive(false);
+            _audioPlayer.PlayAudio("player.win");
             
+            _player.gameObject.SetActive(false);
+
+            _gameHud.HideHealth();
             _gameHud.HideScore();
             _gameHud.SetResult("You Win!\nScore: " + _player.Score);
         }
@@ -54,9 +59,12 @@ namespace NoodleEater
             {
                 enemy.gameObject.SetActive(false);
             }
+            
+            _audioPlayer.PlayAudio("player.lose");
 
             _player.gameObject.SetActive(false);
             
+            _gameHud.HideHealth();
             _gameHud.HideScore();
             _gameHud.SetResult("Game Over!\nScore: " + _player.Score);
         }

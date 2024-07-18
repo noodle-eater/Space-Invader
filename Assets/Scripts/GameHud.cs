@@ -27,5 +27,13 @@ namespace NoodleEater
                 healths[i].gameObject.SetActive(i < health);
             }
         }
+
+        public void HideHealth()
+        {
+            foreach (Image image in healths)
+            {
+                image.gameObject.SetActive(false);
+            }
+        }
     }
 }

@@ -13,6 +13,8 @@ namespace NoodleEater
 
             if (!bullet.Owner.TryGetComponent(out Player player)) return;
             
+            FindObjectOfType<AudioPlayer>().PlayAudio("enemy.destroyed");
+            
             player.AddScore();
             gameObject.SetActive(false);
             Destroy(other.gameObject);

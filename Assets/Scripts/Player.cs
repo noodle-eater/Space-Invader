@@ -14,8 +14,12 @@ namespace NoodleEater
 
         public int Score { get; set; }
 
+        private AudioPlayer _audioPlayer;
+
         private void Start()
         {
+            _audioPlayer = FindObjectOfType<AudioPlayer>();
+            
             OnHealthChanged?.Invoke(health);
             OnScoreUpdated?.Invoke(Score);
         }
@@ -48,6 +52,8 @@ namespace NoodleEater
 
             if (!bullet.Owner.TryGetComponent(out Enemy enemy)) return;
             
+            _audioPlayer.PlayAudio("player.damage");
+            
             health--;
             Destroy(other.gameObject);
             OnHealthChanged?.Invoke(health);
@@ -56,6 +62,8 @@ namespace NoodleEater
         private void Shoot()
         {
             if (!Input.GetKeyDown(KeyCode.Space)) return;
+            
+            _audioPlayer.PlayAudio("player.shoot");
 
             Vector3 shootingPoint = transform.position;
             shootingPoint.y += .5f;

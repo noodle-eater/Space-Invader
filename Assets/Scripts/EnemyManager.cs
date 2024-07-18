@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -8,6 +9,13 @@ namespace NoodleEater
     {
         [SerializeField] private GameObject bulletPrefab;
         [SerializeField] private float shootInterval = 1f;
+
+        private AudioPlayer _audioPlayer;
+
+        private void Start()
+        {
+            _audioPlayer = FindObjectOfType<AudioPlayer>();
+        }
 
         public IEnumerator ShootRoutine()
         {
@@ -26,6 +34,8 @@ namespace NoodleEater
                     yield return null;
                     continue;  // Skip to the next iteration if the selected enemy is null
                 }
+                
+                _audioPlayer.PlayAudio("enemy.shoot");
 
                 Vector3 shootPoint = enemy.transform.position;
                 shootPoint.y -= .5f;

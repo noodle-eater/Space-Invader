@@ -4293,6 +4293,7 @@ GameObject:
   - component: {fileID: 2091841589}
   - component: {fileID: 2091841588}
   - component: {fileID: 2091841591}
+  - component: {fileID: 2091841592}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -4341,6 +4342,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6843c712674e425d9fbd5048a968ec6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2091841592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091841587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c111bf07df134b20b110c537fa3cb966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClipInfos:
+  - id: player.shoot
+    clip: {fileID: 8300000, guid: a747002edc5753e41a0138c2781a1b8b, type: 3}
+  - id: player.lose
+    clip: {fileID: 8300000, guid: d0b172a65a209b04eb1cd8b638dee7a8, type: 3}
+  - id: player.damage
+    clip: {fileID: 8300000, guid: fe75480501f6b834caae7f1027fb9bc5, type: 3}
+  - id: player.win
+    clip: {fileID: 8300000, guid: fa127d1365a69184885a4174df3b69dc, type: 3}
+  - id: enemy.shoot
+    clip: {fileID: 8300000, guid: e2cd8a04f19b1234d9bd5e125c3853e0, type: 3}
+  - id: enemy.destroyed
+    clip: {fileID: 8300000, guid: b2c715455ef3c0541a5fffe105e3f769, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
