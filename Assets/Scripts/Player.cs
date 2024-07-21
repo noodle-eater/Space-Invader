@@ -46,19 +46,28 @@ namespace NoodleEater
 
         private void OnTriggerEnter2D(Collider2D other)
         {
+            CollideWithBullet(other);
+            CollideWithEnemy(other);
+        }
+
+        private void CollideWithBullet(Collider2D other)
+        {
             Bullet bullet = other.GetComponent<Bullet>();
 
             if (!bullet) return;
 
             if (!bullet.Owner.TryGetComponent(out Enemy enemy)) return;
             
-            _audioPlayer.PlayAudio("player.damage");
-            
-            health--;
-            Destroy(other.gameObject);
-            OnHealthChanged?.Invoke(health);
+            ReduceHealth(other);
         }
 
+        private void CollideWithEnemy(Collider2D other)
+        {
+            if (!other.TryGetComponent(out Enemy enemy)) return;
+            
+            ReduceHealth(other);
+        }
+        
         private void Shoot()
         {
             if (!Input.GetKeyDown(KeyCode.Space)) return;
@@ -69,6 +78,15 @@ namespace NoodleEater
             shootingPoint.y += .5f;
             GameObject bulletGo = Instantiate(bulletPrefab, shootingPoint, Quaternion.identity);
             bulletGo.GetComponent<Bullet>().Initialize(transform, Vector3.up);
+        }
+        
+        private void ReduceHealth(Collider2D other)
+        {
+            _audioPlayer.PlayAudio("player.damage");
+            
+            health--;
+            Destroy(other.gameObject);
+            OnHealthChanged?.Invoke(health);
         }
 
         public void AddScore()
